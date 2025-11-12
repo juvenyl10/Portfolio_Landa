@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Permutation and Combination Calculator</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    h1 {
+      position: absolute;
+      top: 0px;
+      left: 560px;
+      font-size: 45px;
+      color: #ffffff;
+    }
+
+    header {
+      background-color: #092637;
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 1468px;
+      height: 70px;
+      left: 0px;
+      position: absolute;
+      top: 0;
+      z-index: 10;
+    }
+
+    .calculator-container {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .calculator {
+      width: 700px;
+      height: 500px;
+      margin: 60px;
+      position: absolute;
+      top: 100px;
+      left: 280px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    input, select{
+        top: 40px;
+        width: 450px;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 20px;
+        box-sizing: border-box;
+        position: relative;
+        left: 110px;
+    }
+    
+    button {
+        position: relative;
+        top: 40px;
+        width: 450px;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 20px;
+        box-sizing: border-box; 
+        text-align: center;
+        right: 0px;
+
+
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .calculate-btn, .clear-btn {
+        background-color: #092637;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin: 5px 0;
+        align-self: center;
+    }
+
+    .calculate-btn:hover, .clear-btn:hover {
+        background-color: #555;
+    }
+
+    .output-container {
+        background-color: #092637;
+        color:#fff;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        height: 295px;
+        position: absolute;
+        right: 40px;
+        top: 160px;
+    }
+
+    .link-container {
+        background-color: #fff;
+        color:#fff;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        height: 200px;
+        position: absolute;
+        right: 40px;
+        bottom: 125px;
+    }
+
+    .result {
+        font-size: 30px;
+        font-weight: bold;
+        position: relative;
+        top: 100px;
+        margin: 20px;
+        text-align: center;
+    }
+    nav {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 300px;
+      height: 650px;
+      background-color: #DEF2FF;
+      padding-top: 90px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      padding: 25px;
+      text-align: center;
+      border-bottom: 1px solid #555;
+    }
+
+    nav ul li:last-child {
+      border-bottom: none;
+    }
+
+    nav ul li a {
+      color: #092637;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    nav ul li a:hover {
+      background-color: #555;
+    }
+
+    upbutton {
+      padding: 10px;
+      width: 100px;
+      position: absolute;
+      text-align: center;
+      top: 25px;
+      right: 50px;
+      color: #fff;
+      background-color: #1b455fe7;
+      border-radius: 5px;
+      font-size: 20px;
+
+    }
+
+    upbutton:hover {
+      background-color: #555;
+    }
+
+    footer {
+      background-color: #092637;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      position: absolute;
+      left: 0px;
+      bottom: 0px;
+      width: 100%;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: small;
+    }
+    
+    alink{
+      color: #092637;
+      text-decoration: underline;
+      position: absolute;
+      left: 1150px;
+      bottom: 225px;
+            
+    }
+    @media (max-width: 768px) {
+        form {
+            flex-direction: column;
+        }
+        input[type="number"],
+        select {
+            width: 100%;
+        }
+    }
+    alink:hover{
+      color: #38B6FF;
+                        
+    }
+
+  </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="unit_converter.html"> <b>Unit Converter</b></a></li>
+            <li><a href="bmi_calculator.html"><b>BMI Calculator</b></a></li>
+            <li><a href="calculator.html"><b>Basic Calculator</b></a></li>
+            <li><a href="number_system.html"><b>Number System</b></a></li>
+            <li><a href="subnetting.html"><b>Subnetting</b></a></li>
+            <li><a href="weighted_average.html"><b>General Weighted Average</b></a></li>
+            <li><a href="permutation_combination.html"><b>Permutation & Combination</b></a></li>
+            <li><a href="gross_salary.html"><b>Salary Calculator</b></a></li>
+    
+        </ul>
+      </nav>
+
+  <header>
+    <h1>Permutation & Combination</h1>
+    <img src="CompuTech.png">
+    <upbutton onclick="location.href='index.html'"><b>Home</b></button>
+    
+  </header>
+<div class="calculator-container">
+  <div class="calculator">
+    <input type="number" id="n" placeholder="Enter n" min="0">
+    <input type="number" id="r" placeholder="Enter r" min="0">
+    <select id="operation">
+      <option value="permutation">Permutation (nPr)</option>
+      <option value="combination">Combination (nCr)</option>
+    </select>
+    <div class="button-container">
+      <button class="calculate-btn" onclick="calculate()">Calculate</button>
+      <button class="clear-btn" onclick="clearFields()">Clear</button>
+    </div>
+  </div>
+
+  <div class="output-container">
+    <div class="result" id="result"></div>
+  </div>
+
+  <div 
+    class="link-container">
+  </div>
+  <alink onclick="location.href='https://youtu.be/XJnIdRXUi7A?si=9e3YqqPTUhqUE2pX'">Watch Tutorial on YouTube</a>
+</div>
+<script>
+  function factorial(num) {
+    if (num < 0) return -1;
+    else if (num == 0) return 1;
+    else {
+      return (num * factorial(num - 1));
+    }
+  }
+
+  function calculate() {
+    const n = parseInt(document.getElementById("n").value);
+    const r = parseInt(document.getElementById("r").value);
+    const operation = document.getElementById("operation").value;
+    let result = 0;
+
+    if (isNaN(n) || isNaN(r) || n < 0 || r < 0 || r > n) {
+      document.getElementById("result").textContent = "Please enter valid values for n and r (n >= r >= 0).";
+      return;
+    }
+
+    if (operation === "permutation") {
+      result = factorial(n) / factorial(n - r);
+      document.getElementById("result").textContent = `Permutation (nPr): ${result}`;
+    } else if (operation === "combination") {
+      result = factorial(n) / (factorial(r) * factorial(n - r));
+      document.getElementById("result").textContent = `Combination (nCr): ${result}`;
+    }
+  }
+
+  function clearFields() {
+    document.getElementById("n").value = "";
+    document.getElementById("r").value = "";
+    document.getElementById("result").textContent = "";
+  }
+
+  
+</script>
+<footer>
+    <p>&copy; CompuTech</p>
+  </footer>
+</body>
+</html>

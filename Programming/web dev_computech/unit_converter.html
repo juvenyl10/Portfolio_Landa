@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit Converter Express</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+    h1 {
+      position: absolute;
+      top: 0px;
+      left: 560px;
+      font-size: 45px;
+      color: #ffffff;
+    }
+
+    header {
+      background-color: #092637;
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 1468px;
+      height: 70px;
+      left: 0px;
+      position: absolute;
+      top: 0;
+      z-index: 10;
+    }
+    
+    img {
+      display: block;
+      margin: 0 auto;
+      position: absolute;
+      left: 40px;
+      top: 8px;
+    }
+    .container {
+        width: 1100px;
+        height: 500px;
+        margin: 120px auto;
+        padding: 20px;
+        background-color: #092637;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        position: relative;
+        left: 150px;
+        top: 25px;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: center;
+        background-color: #fff;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .navbar a {
+        color: #092637;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px 105px;
+        text-decoration: none;
+        text-align: center;
+        border-left: 1px solid #092637;
+        border-right: 1px solid #092637;
+    }
+
+    .navbar a:hover {
+        background-color: #092637;
+        color: #fff;
+    }
+
+    .b1 {
+        margin: 10px;
+        background-color: #fff;
+        color: #092637;
+        font-size: 20px;
+        font-weight: bold;
+
+    }
+
+    .b2 {
+        margin: 10px;
+        background-color: #fff;
+        color: #092637;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    h1 {
+        text-align: center;
+        
+    }
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        margin-left: 260px;
+    
+    }
+
+    label {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: left;
+    margin-left: 10px;
+    font-size: 20px;
+    color: white;
+}
+
+input[type="number"],
+select {
+    width: calc(70% - 50px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    text-align: left;
+    
+}
+
+input[type="submit"],
+input[type="button"] {
+    width: calc(70% - 50px);
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #fff;
+    color: #092637;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    justify-content: left;
+    margin-left: 0px;
+
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background-color: #ccc;
+    color: #fff;
+}
+
+    #result {
+        margin-top: 20px;
+        text-align: center;
+        color:white;
+    }
+    nav {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 300px;
+      height: 650px;
+      background-color: #DEF2FF;
+      padding-top: 90px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      padding: 25px;
+      text-align: center;
+      border-bottom: 1px solid #555;
+    }
+
+    nav ul li:last-child {
+      border-bottom: none;
+    }
+
+    nav ul li a {
+      color: #092637;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    nav ul li a:hover {
+      background-color: #555;
+    }
+
+    upbutton {
+      padding: 10px;
+      width: 100px;
+      position: absolute;
+      text-align: center;
+      top: 25px;
+      right: 50px;
+      color: #fff;
+      background-color: #1b455fe7;
+      border-radius: 5px;
+      font-size: 20px;
+
+    }
+
+    upbutton:hover {
+      background-color: #555;
+    }
+
+    footer {
+      background-color: #092637;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      position: absolute;
+      left: 0px;
+      bottom: 0px;
+      width: 100%;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: small;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            width: 100%;
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+        }
+
+        input[type="submit"],
+        input[type="button"] {
+            width: 100%;
+        }
+    }
+</style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="unit_converter.html"> <b>Unit Converter</b></a></li>
+            <li><a href="bmi_calculator.html"><b>BMI Calculator</b></a></li>
+            <li><a href="calculator.html"><b>Basic Calculator</b></a></li>
+            <li><a href="number_system.html"><b>Number System</b></a></li>
+            <li><a href="subnetting.html"><b>Subnetting</b></a></li>
+            <li><a href="weighted_average.html"><b>General Weighted Average</b></a></li>
+            <li><a href="permutation_combination.html"><b>Permutation & Combination</b></a></li>
+            <li><a href="gross_salary.html"><b>Salary Calculator</b></a></li>
+    
+        </ul>
+      </nav>
+    
+      <header>
+        <h1>Unit Converter</h1>
+        <img src="CompuTech.png">
+        <upbutton onclick="location.href='index.html'"><b>Home</b></button>
+        
+      </header>
+
+<div class="container">
+    <div class="navbar">
+        <a href="#" id="lengthLink">Length</a>
+        <a href="#" id="weightLink">Weight</a>
+        <a href="#" id="timeLink">Time</a>
+        <a href="#" id="temperatureLink">Temperature</a>
+    </div>
+    <h1></h1>
+    <form id="converterForm">
+        <label for="fromValue">From:</label>
+        <input type="number" id="fromValue" required>
+        <select id="fromUnit" required></select>
+
+        <label for="toValue">To:</label>
+        <input type="number" id="toValue" readonly>
+        <select id="toUnit" required></select>
+
+        <input class="b1" type="submit" value="Convert">
+        <input class="b2" type="button" value="Clear" id="clearButton">
+    </form>
+    <div id="result"></div>
+</div>
+<footer>
+    <p>&copy; CompuTech</p>
+  </footer>
+  <script>
+    const converterForm = document.getElementById('converterForm');
+    const clearButton = document.getElementById('clearButton');
+    const fromUnitSelect = document.getElementById('fromUnit');
+    const toUnitSelect = document.getElementById('toUnit');
+    
+    const lengthUnits = ['meter', 'kilometer', 'centimeter', 'millimeter', 'micrometer', 'nanometer', 'mile', 'yard', 'foot', 'inch'];
+    const weightUnits = ['kilogram', 'pound'];
+    const timeUnits = ['minute', 'hour'];
+    const temperatureUnits = ['celsius', 'fahrenheit'];
+    
+    document.getElementById('lengthLink').addEventListener('click', () => populateUnits(lengthUnits));
+    document.getElementById('weightLink').addEventListener('click', () => populateUnits(weightUnits));
+    document.getElementById('timeLink').addEventListener('click', () => populateUnits(timeUnits));
+    document.getElementById('temperatureLink').addEventListener('click', () => populateUnits(temperatureUnits));
+
+    function populateUnits(units) {
+        fromUnitSelect.innerHTML = '';
+        toUnitSelect.innerHTML = '';
+        units.forEach(unit => {
+            fromUnitSelect.innerHTML += `<option value="${unit}">${unit.charAt(0).toUpperCase() + unit.slice(1)}</option>`;
+            toUnitSelect.innerHTML += `<option value="${unit}">${unit.charAt(0).toUpperCase() + unit.slice(1)}</option>`;
+        });
+    }
+
+    converterForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const fromValue = parseFloat(document.getElementById('fromValue').value);
+        const fromUnit = document.getElementById('fromUnit').value;
+        const toUnit = document.getElementById('toUnit').value;
+
+        let result;
+
+        switch (fromUnit) {
+            case 'meter':
+                result = convertMeter(fromValue, toUnit);
+                break;
+            case 'kilometer':
+                result = convertKilometer(fromValue, toUnit);
+                break;
+            case 'centimeter':
+                result = convertCentimeter(fromValue, toUnit);
+                break;
+            case 'millimeter':
+                result = convertMillimeter(fromValue, toUnit);
+                break;
+            case 'micrometer':
+                result = convertMicrometer(fromValue, toUnit);
+                break;
+            case 'nanometer':
+                result = convertNanometer(fromValue, toUnit);
+                break;
+            case 'mile':
+                result = convertMile(fromValue, toUnit);
+                break;
+            case 'yard':
+                result = convertYard(fromValue, toUnit);
+                break;
+            case 'foot':
+                result = convertFoot(fromValue, toUnit);
+                break;
+            case 'inch':
+                result = convertInch(fromValue, toUnit);
+                break;
+            case 'kilogram':
+                result = convertKilogram(fromValue, toUnit);
+                break;
+            case 'pound':
+                result = convertPound(fromValue, toUnit);
+                break;
+            case 'minute':
+                result = convertMinute(fromValue, toUnit);
+                break;
+            case 'hour':
+                result = convertHour(fromValue, toUnit);
+                break;
+            case 'celsius':
+                result = convertCelsius(fromValue, toUnit);
+                break;
+            case 'fahrenheit':
+                result = convertFahrenheit(fromValue, toUnit);
+                break;
+            default:
+                result = 'Invalid conversion';
+        }
+
+        document.getElementById('toValue').value = result;
+    });
+
+    clearButton.addEventListener('click', function () {
+        document.getElementById('fromValue').value = '';
+        document.getElementById('toValue').value = '';
+    });
+
+    // Conversion functions for length units
+    function convertMeter(value, toUnit) {
+        const conversions = {
+            meter: value,
+            kilometer: value / 1000,
+            centimeter: value * 100,
+            millimeter: value * 1000,
+            micrometer: value * 1e+6,
+            nanometer: value * 1e+9,
+            mile: value * 0.000621371,
+            yard: value * 1.09361,
+            foot: value * 3.28084,
+            inch: value * 39.3701
+        };
+        return conversions[toUnit];
+    }
+
+    function convertKilometer(value, toUnit) {
+        const conversions = {
+            meter: value * 1000,
+            kilometer: value,
+            centimeter: value * 100000,
+            millimeter: value * 1e+6,
+            micrometer: value * 1e+9,
+            nanometer: value * 1e+12,
+            mile: value * 0.621371,
+            yard: value * 1093.61,
+            foot: value * 3280.84,
+            inch: value * 39370.1
+        };
+        return conversions[toUnit];
+    }
+
+    function convertCentimeter(value, toUnit) {
+        const conversions = {
+            meter: value / 100,
+            kilometer: value / 100000,
+            centimeter: value,
+            millimeter: value * 10,
+            micrometer: value * 10000,
+            nanometer: value * 1e+7,
+            mile: value * 6.2137e-6,
+            yard: value * 0.0109361,
+            foot: value * 0.0328084,
+            inch: value * 0.393701
+        };
+        return conversions[toUnit];
+    }
+
+    function convertMillimeter(value, toUnit) {
+        const conversions = {
+            meter: value / 1000,
+            kilometer: value / 1e+6,
+            centimeter: value / 10,
+            millimeter: value,
+            micrometer: value * 1000,
+            nanometer: value * 1e+6,
+            mile: value * 6.2137e-7,
+            yard: value * 0.00109361,
+            foot: value * 0.00328084,
+            inch: value * 0.0393701
+        };
+        return conversions[toUnit];
+    }
+
+    function convertMicrometer(value, toUnit) {
+        const conversions = {
+            meter: value / 1e+6,
+            kilometer: value / 1e+9,
+            centimeter: value / 10000,
+            millimeter: value / 1000,
+            micrometer: value,
+            nanometer: value * 1000,
+            mile: value * 6.2137e-10,
+            yard: value * 1.0936e-6,
+            foot: value * 3.2808e-6,
+            inch: value * 3.937e-5
+        };
+        return conversions[toUnit];
+    }
+
+    function convertNanometer(value, toUnit) {
+        const conversions = {
+            meter: value / 1e+9,
+            kilometer: value / 1e+12,
+            centimeter: value / 1e+7,
+            millimeter: value / 1e+6,
+            micrometer: value / 1000,
+            nanometer: value,
+            mile: value * 6.2137e-13,
+            yard: value * 1.0936e-9,
+            foot: value * 3.2808e-9,
+            inch: value * 3.937e-8
+        };
+        return conversions[toUnit];
+    }
+
+    function convertMile(value, toUnit) {
+        const conversions = {
+            meter: value / 0.000621371,
+            kilometer: value / 0.621371,
+            centimeter: value / 6.2137e-6,
+            millimeter: value / 6.2137e-7,
+            micrometer: value / 6.2137e-10,
+            nanometer: value / 6.2137e-13,
+            mile: value,
+            yard: value * 1760,
+            foot: value * 5280,
+            inch: value * 63360
+        };
+        return conversions[toUnit];
+    }
+
+    function convertYard(value, toUnit) {
+        const conversions = {
+            meter: value / 1.09361,
+            kilometer: value / 1093.61,
+            centimeter: value * 91.44,
+            millimeter: value * 914.4,
+            micrometer: value * 914400,
+            nanometer: value * 9.144e+8,
+            mile: value / 1760,
+            yard: value,
+            foot: value * 3,
+            inch: value * 36
+        };
+        return conversions[toUnit];
+    }
+
+    function convertFoot(value, toUnit) {
+        const conversions = {
+            meter: value / 3.28084,
+            kilometer: value / 3280.84,
+            centimeter: value * 30.48,
+            millimeter: value * 304.8,
+            micrometer: value * 304800,
+            nanometer: value * 3.048e+8,
+            mile: value / 5280,
+            yard: value / 3,
+            foot: value,
+            inch: value * 12
+        };
+        return conversions[toUnit];
+    }
+
+    function convertInch(value, toUnit) {
+        const conversions = {
+            meter: value / 39.3701,
+            kilometer: value / 39370.1,
+            centimeter: value * 2.54,
+            millimeter: value * 25.4,
+            micrometer: value * 25400,
+            nanometer: value * 2.54e+7,
+            mile: value / 63360,
+            yard: value / 36,
+            foot: value / 12,
+            inch: value
+        };
+        return conversions[toUnit];
+    }
+
+    // Conversion functions for weight units
+    function convertKilogram(value, toUnit) {
+        const conversions = {
+            kilogram: value,
+            pound: value * 2.20462
+        };
+        return conversions[toUnit];
+    }
+
+    function convertPound(value, toUnit) {
+        const conversions = {
+            kilogram: value * 0.453592,
+            pound: value
+        };
+        return conversions[toUnit];
+    }
+
+    // Conversion functions for time units
+    function convertMinute(value, toUnit) {
+        const conversions = {
+            minute: value,
+            hour: value / 60
+        };
+        return conversions[toUnit];
+    }
+
+    function convertHour(value, toUnit) {
+        const conversions = {
+            minute: value * 60,
+            hour: value
+        };
+        return conversions[toUnit];
+    }
+
+    // Conversion functions for temperature units
+    function convertCelsius(value, toUnit) {
+        if (toUnit === 'celsius') {
+            return value;
+        } else if (toUnit === 'fahrenheit') {
+            return (value * 9/5) + 32;
+        }
+    }
+
+    function convertFahrenheit(value, toUnit) {
+        if (toUnit === 'fahrenheit') {
+            return value;
+        } else if (toUnit === 'celsius') {
+            return (value - 32) * (5/9);
+        }
+    }
+</script>
+
+</body>
+</html>
